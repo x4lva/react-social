@@ -1,6 +1,5 @@
 import {UPDATE_USER_STATE} from "../types/UserTypes";
-import {getCurrentUser} from "../../services/user";
-import {ACCESS_TOKEN} from "../../constants";
+import {getCurrentUser} from "../../util/APIUtils";
 
 export const setUserState = (payload) => {
     return {
@@ -10,7 +9,6 @@ export const setUserState = (payload) => {
 };
 
 export const loadUserData = () => (dispatch, getState) => {
-    console.log("LOAD")
     getCurrentUser()
         .then(response => {
             dispatch(setUserState({
@@ -19,7 +17,6 @@ export const loadUserData = () => (dispatch, getState) => {
                 userLoading: false
             }))
         }).catch(error => {
-            console.log(error)
             dispatch(setUserState({
                 userData: {},
                 userAuthenticated: false,
@@ -29,11 +26,8 @@ export const loadUserData = () => (dispatch, getState) => {
 };
 
 export const userLogOut = () => (dispatch, getState) => {
-    localStorage.removeItem(ACCESS_TOKEN);
     dispatch(setUserState({
         userAuthenticated: false,
-        userData: {}
+        userData: null
     }))
 };
-
-
