@@ -44,13 +44,7 @@ class App extends Component {
                 <div className="app">
                     <div className="app-body">
                         <Switch>
-                            <Route exact path="/" component={Home} />
-                            <Route exact path="/profile" currentUser={this.props.userData}
-                                   component={Profile} />
-                            <Route path="/login"
-                                   render={(props) => <Login authenticated={this.props.userAuthenticated} {...props} />} />
-                            <Route path="/signup"
-                                   render={(props) => <Signup authenticated={this.props.userAuthenticated} {...props} />} />
+                            <Route exact path={"/"} component={Home} />
                             <Route path="/oauth2/redirect" component={OAuth2RedirectHandler} />
                         </Switch>
                     </div>

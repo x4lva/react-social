@@ -1,0 +1,28 @@
+.event-item {
+    margin-right: 50px;
+    border-radius: 20px;
+    height: 220px;
+    min-width: 330px;
+    background: #fff no-repeat center;
+    display: flex;
+    align-items: end;
+    background-size: cover;
+}
+
+.event-item-content {
+    border-radius: 19px;
+    padding: 15px 25px;
+    background: #fff;
+    width: 100%;
+}
+.event-item-title {
+    font-weight: bold;
+    font-size: 14px;
+}
+.event-item-date {
+    color: #ccc;
+    font-size: 12px;
+}
+.event-item-date i {
+    margin-right: 5px;
+}

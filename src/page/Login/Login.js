@@ -1,4 +1,4 @@
-import React, {Component, useEffect} from 'react';
+import React, {Component, useEffect, useState} from 'react';
 import './Login.css';
 import { GITHUB_AUTH_URL, ACCESS_TOKEN } from '../../constants';
 import { login } from '../../util/APIUtils';
@@ -7,6 +7,7 @@ import githubLogo from '../../img/github-logo.png';
 import Alert from 'react-s-alert';
 import {useDispatch} from "react-redux";
 import {setLoginModalShow, setSignupModalShow} from "../../redux/actions/MainActions";
+import {setUserState} from "../../redux/actions/UserActions";
 
 const Login = (props) => {
 
@@ -37,16 +38,11 @@ const Login = (props) => {
     return (
         <div className="login-container">
             <div className="login-content">
-                <h1 className="login-title">Login to SpringSocial</h1>
                 <SocialLogin />
-                <div className="or-separator">
+                <div className="or-separator text-center my-2">
                     <span className="or-text">OR</span>
                 </div>
                 <LoginForm {...props} />
-                <span className="signup-link">New user? <div onClick={() => {
-                    dispatch(setSignupModalShow(true))
-                    dispatch(setLoginModalShow(false))
-                }}>Sign up!</div></span>
             </div>
         </div>
     );
@@ -65,61 +61,64 @@ class SocialLogin extends Component {
 }
 
 
-class LoginForm extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            email: '',
-            password: ''
-        };
-        this.handleInputChange = this.handleInputChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
+const LoginForm = (props) => {
+    const dispatch = useDispatch();
 
-    handleInputChange(event) {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+
+    function handleInputChange(event) {
         const target = event.target;
         const inputName = target.name;        
         const inputValue = target.value;
 
-        this.setState({
-            [inputName] : inputValue
-        });        
+        switch (inputName){
+            case "password":
+                setPassword(inputValue)
+                break
+            case "email":
+                setEmail(inputValue)
+                break
+        }
     }
 
-    handleSubmit(event) {
+    function handleSubmit(event) {
         event.preventDefault();   
 
-        const loginRequest = Object.assign({}, this.state);
+        const loginRequest = Object.assign({}, {email, password});
 
         login(loginRequest)
         .then(response => {
             localStorage.setItem(ACCESS_TOKEN, response.accessToken);
             Alert.success("You're successfully logged in!");
-            this.props.history.push("/");
+            props.history.push("/");
         }).catch(error => {
             Alert.error((error && error.message) || 'Oops! Something went wrong. Please try again!');
         });
     }
     
-    render() {
-        return (
-            <form onSubmit={this.handleSubmit}>
-                <div className="form-item">
-                    <input type="email" name="email" 
-                        className="form-control" placeholder="Email"
-                        value={this.state.email} onChange={this.handleInputChange} required/>
-                </div>
-                <div className="form-item">
-                    <input type="password" name="password" 
-                        className="form-control" placeholder="Password"
-                        value={this.state.password} onChange={this.handleInputChange} required/>
-                </div>
-                <div className="form-item">
-                    <button type="submit" className="btn btn-block btn-primary">Login</button>
-                </div>
-            </form>                    
-        );
-    }
+    return (
+        <form onSubmit={handleSubmit}>
+            <div className="form-item">
+                <input type="email" name="email"
+                    className="form-control" placeholder="Email"
+                    value={email} onChange={handleInputChange} required/>
+            </div>
+            <div className="form-item mt-2">
+                <input type="password" name="password"
+                    className="form-control" placeholder="Password"
+                    value={password} onChange={handleInputChange} required/>
+            </div>
+            <div className="form-item col-12 d-flex justify-content-between mt-3">
+                <button type="submit" className="btn btn-block btn-primary col-7">Login</button>
+                <button onClick={() => {
+                    dispatch(setSignupModalShow(true))
+                    dispatch(setLoginModalShow(false))
+                }} className="btn btn-block btn-dark col-4">Sign up</button>
+            </div>
+        </form>
+    );
 }
 
 export default Login

@@ -8,9 +8,9 @@ const ModalWrapper = (props, children) => {
     return (
         <Modal
             {...props}
-            size="lg"
             aria-labelledby="contained-modal-title-vcenter"
             centered
+            dialogClassName={"width: 100px;"}
         >
             <Modal.Body>
                 {props.component}

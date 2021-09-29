@@ -12,3 +12,55 @@
     color: inherit;
     text-decoration: none;
 }
+.main-sidebar {
+    width: 15%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    background: #353746;
+}
+.header-logo{
+    font-weight: bold;
+    font-size: 22px;
+}
+.header-menu ul li {
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    font-weight: 500;
+}
+.header-menu ul {
+    padding: 0;
+    margin: 0 0 0 1.4rem;
+    height: 100%;
+}
+.app-header {
+    height: 400px;
+    background: rgb(177,216,253);
+    background: linear-gradient(140deg, rgba(177,216,253,1) 0%, rgba(186,175,255,1) 36%, rgba(175,255,182,1) 100%);
+}
+.search-form {
+    background-color: #ffffff;
+    border-radius: 45px;
+    padding: 10px 15px 10px 30px;
+    width: 100%;
+    position: relative;
+    top: 50px;
+}
+
+.search-form-submit {
+    padding: 0 25px;
+    border-radius: 30px;
+    height: 100%;
+    border: 0;
+    background-color: #AFFFB6;
+}
+.form-option {
+    padding: 10px 0;
+}
+.form-action {
+    display: flex;
+    justify-content: end;
+}
