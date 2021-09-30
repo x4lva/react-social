@@ -16,6 +16,7 @@ import Home from "../page/Home/Home";
 import Login from "../page/Login/Login";
 import Signup from "../page/Signup/Signup";
 import Profile from "../page/Profile/Profile";
+import Calendar from "../page/Calendar/Calendar";
 
 class App extends Component {
     constructor(props) {
@@ -45,12 +46,13 @@ class App extends Component {
                     <div className="app-body">
                         <Switch>
                             <Route exact path={"/"} component={Home} />
-                            <Route path="/oauth2/redirect" component={OAuth2RedirectHandler} />
+                            <Route exact path={"/profile"} component={Profile} />
+                            <Route exact path={"/profile/tickets"} component={Profile} />
+                            <Route exact path={"/profile/favourites"} component={Profile} />
+                            <Route exact path={"/calendar"} component={Calendar} />
+                            <Route exact path={"/oauth2/redirect"} component={OAuth2RedirectHandler} />
                         </Switch>
                     </div>
-                    <Alert stack={{limit: 3}}
-                           timeout = {3000}
-                           position='top-right' effect='slide' offset={65} />
                 </div>
             </BrowserRouter>
         );

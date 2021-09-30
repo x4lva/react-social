@@ -1,0 +1,8 @@
+.theme-item {
+    font-size: 23px;
+    font-weight: 500;
+    transition: .3s;
+}
+.theme-item:hover {
+    color: #643FFF;
+}

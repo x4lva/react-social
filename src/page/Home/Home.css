@@ -37,9 +37,9 @@
     height: 100%;
 }
 .app-header {
-    height: 400px;
+    height: 300px;
     background: rgb(177,216,253);
-    background: linear-gradient(140deg, rgba(177,216,253,1) 0%, rgba(186,175,255,1) 36%, rgba(175,255,182,1) 100%);
+    background: linear-gradient(140deg, rgba(177,216,253,1) 0%, rgba(151,135,255,1) 35%, rgba(100,63,255,1) 100%);
 }
 .search-form {
     background-color: #ffffff;
@@ -55,7 +55,9 @@
     border-radius: 30px;
     height: 100%;
     border: 0;
-    background-color: #AFFFB6;
+    background-color: #643FFF;
+    color: #ffffff;
+    font-weight: 500;
 }
 .form-option {
     padding: 10px 0;
@@ -63,4 +65,22 @@
 .form-action {
     display: flex;
     justify-content: end;
+}
+.header-user {
+    display: flex;
+    align-items: center;
+}
+.header-user-icon {
+    font-size: 27px;
+}
+.header-user-info {
+    font-weight: 500;
+}
+.feed {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 13px;
+}
+.feed .event-item:nth-child(3n) {
+    margin-right: 0;
 }

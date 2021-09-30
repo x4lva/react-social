@@ -6,9 +6,13 @@ import Login from "../Login/Login";
 import {useDispatch, useSelector} from "react-redux";
 import {setLoginModalShow, setSignupModalShow} from "../../redux/actions/MainActions";
 import Signup from "../Signup/Signup";
-import PopularEvents from "../../components/PopularEvents/PopularEvents";
 import SectionHeader from "../../components/SectionHeader/SectionHeader";
 import {Link, NavLink} from "react-router-dom";
+import Header from "../../components/Header/Header";
+import EventItem from "../../components/EventItem/EventItem";
+import CompilationSection from "../../components/СompilationSection/CompilationSection";
+import RecommendationSection from "../../components/RecommendationSection/RecommendationSection";
+import ThemeSection from "../../components/ThemeSection/ThemeSection";
 
 const Home = (props) => {
     const dispatch = useDispatch()
@@ -63,64 +67,36 @@ const Home = (props) => {
         <Fragment>
             <header className="app-header">
                 <div className="container d-flex flex-column py-3 h-100 justify-content-between">
-                    <div className="header d-flex">
-                        <div className="header-logo me-5">
-                            Raver
-                        </div>
-                        <div className="header-menu">
-                            <ul className="d-flex">
-                                <li className="me-4">
-                                    <NavLink to={"/"} activeStyle={{fontWeight: "bold"}}>
-                                        Search
-                                    </NavLink>
-                                </li>
-                                <li className="me-4">
-                                    <NavLink to={"/profile/favourites"} activeStyle={{fontWeight: "bold"}}>
-                                        Favourites
-                                    </NavLink>
-                                </li>
-                                <li className="me-4">
-                                    <NavLink to={"/calendar"} activeStyle={{fontWeight: "bold"}}>
-                                        Calendar
-                                    </NavLink>
-                                </li>
-                                <li className="me-4">
-                                    <NavLink to={"/profile/tickets"} activeStyle={{fontWeight: "bold"}}>
-                                        Tickets
-                                    </NavLink>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                    <Header />
                     <div className="search-form shadow">
                         <form action="" className="d-flex justify-content-between col-12">
                             <div className="form-option d-flex col-10">
                                 <input className="simple-input col-4" type="text"
-                                       placeholder="Search by name or type..."/>
+                                       placeholder="Поиск по названию или типу..."/>
                                 <div className="form-separator"/>
                                 <div className="form-item col-2">
                                     <i className="form-item-icon fas fa-calendar-alt"/>
                                     <div className="form-item-content">
-                                        Date
+                                        Дата
                                     </div>
                                 </div>
                                 <div className="form-separator"/>
                                 <div className="form-item col-2">
                                     <i className="form-item-icon fas fa-map-marker-alt"/>
                                     <div className="form-item-content">
-                                        Location
+                                        Локація
                                     </div>
                                 </div>
                                 <div className="form-separator"/>
                                 <div className="form-item col-2">
                                     <i className="form-item-icon fas fa-th"/>
                                     <div className="form-item-content">
-                                        Type
+                                        Тип
                                     </div>
                                 </div>
                             </div>
                             <div className="form-action col-2">
-                                <button className="search-form-submit" type="submit">Search</button>
+                                <button className="search-form-submit" type="submit">Поиск</button>
                             </div>
                         </form>
                     </div>
@@ -128,12 +104,24 @@ const Home = (props) => {
             </header>
             <main>
                 <div className="container mt-5">
-                    <PopularEvents/>
-                    <SectionHeader title="lol"/>
+                    <RecommendationSection/>
+                </div>
+                <CompilationSection />
+                <div className="container mt-5">
+                    <div className={"d-flex flex-wrap feed"}>
+                        <EventItem img={"https://images.pexels.com/photos/167491/pexels-photo-167491.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"} />
+                        <EventItem img={"https://images.pexels.com/photos/167491/pexels-photo-167491.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"} />
+                        <EventItem img={"https://images.pexels.com/photos/167491/pexels-photo-167491.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"} />
+                        <EventItem img={"https://images.pexels.com/photos/167491/pexels-photo-167491.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"} />
+                        <EventItem img={"https://images.pexels.com/photos/167491/pexels-photo-167491.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"} />
+                        <EventItem img={"https://images.pexels.com/photos/167491/pexels-photo-167491.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"} />
+                    </div>
+                </div>
+                <div className="container mt-5">
+                    <ThemeSection/>
                 </div>
             </main>
         </Fragment>
-
     )
 }
 
