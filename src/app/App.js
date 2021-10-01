@@ -17,6 +17,7 @@ import Login from "../page/Login/Login";
 import Signup from "../page/Signup/Signup";
 import Profile from "../page/Profile/Profile";
 import Calendar from "../page/Calendar/Calendar";
+import EventDetails from "../page/Event/Event";
 
 class App extends Component {
     constructor(props) {
@@ -50,6 +51,7 @@ class App extends Component {
                             <Route exact path={"/profile/tickets"} component={Profile} />
                             <Route exact path={"/profile/favourites"} component={Profile} />
                             <Route exact path={"/calendar"} component={Calendar} />
+                            <Route path={"/event/:eventId"} component={EventDetails} />
                             <Route exact path={"/oauth2/redirect"} component={OAuth2RedirectHandler} />
                         </Switch>
                     </div>
