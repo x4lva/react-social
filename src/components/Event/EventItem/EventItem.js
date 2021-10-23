@@ -1,5 +1,5 @@
 import React from 'react';
-import "./EventItem.css"
+import "./EventItem.scss"
 
 const EventItem = (props) => {
 

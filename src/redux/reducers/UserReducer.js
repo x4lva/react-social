@@ -5,7 +5,8 @@ const initialState = {
         roles: []
     },
     userAuthenticated: false,
-    userLoading: true
+    userLoading: true,
+    createOrganisationModalShow: false
 };
 
 const userReducer = (state = initialState, action) => {

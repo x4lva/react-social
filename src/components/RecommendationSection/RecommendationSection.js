@@ -1,8 +1,8 @@
 import React from 'react';
-import "./RecommendationSection.css"
+import "./RecommendationSection.scss"
 import SectionHeader from "../SectionHeader/SectionHeader";
 import ScrollContainer from "react-indiana-drag-scroll";
-import EventItem from "../EventItem/EventItem";
+import EventItem from "../Event/EventItem/EventItem";
 
 const RecommendationSection = () => {
     return (

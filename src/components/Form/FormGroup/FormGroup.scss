@@ -1,0 +1,17 @@
+@import "src/css/color";
+
+.form-group {
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+
+    &-tile {
+        color: $darkColor;
+        font-family: Montserrat, serif;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 22px;
+        margin-bottom: 12px;
+    }
+}

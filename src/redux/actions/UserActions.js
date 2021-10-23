@@ -31,3 +31,9 @@ export const userLogOut = () => (dispatch, getState) => {
         userData: null
     }))
 };
+
+export const setCreateOrganisationModalShow = (value) => (dispatch, getState) => {
+    dispatch(setUserState({
+        createOrganisationModalShow: value
+    }))
+};

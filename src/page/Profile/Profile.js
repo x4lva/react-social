@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Profile.css';
+import './Profile.scss';
 import {connect} from "react-redux";
 import {Redirect} from "react-router-dom";
 import {ACCESS_TOKEN} from "../../constants";

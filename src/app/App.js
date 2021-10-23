@@ -8,16 +8,15 @@ import { ACCESS_TOKEN } from '../constants';
 import Alert from 'react-s-alert';
 import 'react-s-alert/dist/s-alert-default.css';
 import 'react-s-alert/dist/s-alert-css-effects/slide.css';
-import './App.css';
+import './App.scss';
 import {loadUserData, userLogOut} from "../redux/actions/UserActions";
 import {connect} from "react-redux";
 import OAuth2RedirectHandler from "../util/oauth2/OAuth2RedirectHandler";
 import Home from "../page/Home/Home";
-import Login from "../page/Login/Login";
-import Signup from "../page/Signup/Signup";
 import Profile from "../page/Profile/Profile";
 import Calendar from "../page/Calendar/Calendar";
 import EventDetails from "../page/Event/Event";
+import Organisations from "../page/Organisations/Organisations";
 
 class App extends Component {
     constructor(props) {
@@ -51,6 +50,7 @@ class App extends Component {
                             <Route exact path={"/profile/tickets"} component={Profile} />
                             <Route exact path={"/profile/favourites"} component={Profile} />
                             <Route exact path={"/calendar"} component={Calendar} />
+                            <Route exact path={"/organisations"} component={Organisations} />
                             <Route path={"/event/:eventId"} component={EventDetails} />
                             <Route exact path={"/oauth2/redirect"} component={OAuth2RedirectHandler} />
                         </Switch>

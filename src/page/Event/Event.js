@@ -1,7 +1,7 @@
 import React from 'react';
 import HeaderWrapper from "../../components/HeaderWrapper/HeaderWrapper";
-import "./Event.css"
-import {Carousel} from "react-bootstrap";
+import "./Event.scss"
+
 const EventDetails = () => {
 
     const eventBanner = `url("https://images.pexels.com/photos/167491/pexels-photo-167491.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")`

@@ -1,5 +1,5 @@
 import React, {Component, useEffect, useState} from 'react';
-import './Login.css';
+import './Login.scss';
 import { GITHUB_AUTH_URL, ACCESS_TOKEN } from '../../constants';
 import { login } from '../../util/APIUtils';
 import { Redirect } from 'react-router-dom'

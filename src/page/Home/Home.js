@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react';
-import './Home.css';
+import './Home.scss';
 import {ACCESS_TOKEN} from "../../constants";
 import ModalWrapper from "../../components/ModalWrapper/ModalWrapper";
 import Login from "../Login/Login";
@@ -9,7 +9,7 @@ import Signup from "../Signup/Signup";
 import SectionHeader from "../../components/SectionHeader/SectionHeader";
 import {Link, NavLink} from "react-router-dom";
 import Header from "../../components/Header/Header";
-import EventItem from "../../components/EventItem/EventItem";
+import EventItem from "../../components/Event/EventItem/EventItem";
 import CompilationSection from "../../components/СompilationSection/CompilationSection";
 import RecommendationSection from "../../components/RecommendationSection/RecommendationSection";
 import ThemeSection from "../../components/ThemeSection/ThemeSection";

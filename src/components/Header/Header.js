@@ -44,9 +44,15 @@ const Header = () => {
                                 </div>
                             </Dropdown.Toggle>
                             <Dropdown.Menu>
-                                <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                                <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                                <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                                <Dropdown.Item href="#/action-1">
+                                    <Link to={"/organisations"}>Організації</Link>
+                                </Dropdown.Item>
+                                <Dropdown.Item href="#/action-2">
+                                    <Link to={"/profile"}>Профліль</Link>
+                                </Dropdown.Item>
+                                <Dropdown.Item href="#/action-3">
+                                    <Link to={"/logout"}>Вийти</Link>
+                                </Dropdown.Item>
                             </Dropdown.Menu>
                         </Dropdown>
                     </Link>

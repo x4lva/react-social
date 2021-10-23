@@ -1,0 +1,72 @@
+@import "src/css/color";
+
+.form-input-wrapper {
+    position: relative;
+
+    &.error .form-input {
+        outline-color: $dangerColor;
+        border-color: $dangerColor;
+        color: $dangerColor;
+
+        &::placeholder {
+            color: $dangerColor;
+        }
+    }
+}
+
+.form-input {
+    width: 100%;
+    border: 2px solid $lightColor;
+    border-radius: 16px;
+    padding: 20px;
+    color: $darkColor;
+    position: relative;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+
+    @media (max-width: 767px) {
+        padding: 15px 18px;
+    }
+
+    &::placeholder {
+        color: $lightColor;
+    }
+
+    &:focus {
+        outline-color: $primaryColorLight;
+    }
+}
+
+.form-input-password-show {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translate(0, -50%);
+
+    .eye-icon {
+        transition: .3s;
+
+        &:hover path {
+            fill: $primaryColorLight;
+        }
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &.active .eye-icon path {
+        fill: $primaryColorLight;
+    }
+}
+
+.form-input-errors {
+    color: $dangerColor;
+    margin-top: 10px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px;
+}

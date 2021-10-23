@@ -1,5 +1,5 @@
 import React, {Component, useState} from 'react';
-import './Signup.css';
+import './Signup.scss';
 import { Link, Redirect } from 'react-router-dom'
 import { GOOGLE_AUTH_URL, FACEBOOK_AUTH_URL, GITHUB_AUTH_URL } from '../../constants';
 import { signup } from '../../util/APIUtils';

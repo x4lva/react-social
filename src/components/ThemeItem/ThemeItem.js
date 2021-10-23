@@ -1,5 +1,5 @@
 import React from 'react';
-import "./ThemeItem.css"
+import "./ThemeItem.scss"
 const ThemeItem = ({name}) => {
     return (
         <div className={"theme-item col-4 mb-3"}>
