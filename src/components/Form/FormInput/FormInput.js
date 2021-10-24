@@ -11,6 +11,7 @@ const FormInput = (props) => {
         value,
         onChange,
         params,
+        help,
         errors
     } = props
 
@@ -29,12 +30,16 @@ const FormInput = (props) => {
                     </div>
                 ) }
             </div>
-
             { errors !== undefined && errors.length !== 0 ? (
                 <div className="form-input-errors">
                     { errors }
                 </div>
             ) : "" }
+            { help !== undefined &&
+                <div className="form-input-help">
+                    {help}
+                </div>
+            }
         </React.Fragment>
     );
 };

@@ -1,16 +1,12 @@
 import React from 'react';
-import {Button, Modal} from "react-bootstrap";
-import {useDispatch, useSelector, useStore} from "react-redux";
-import {setLoginModalShow} from "../../redux/actions/MainActions";
+import { Modal } from "react-bootstrap";
 
 const ModalWrapper = (props, children) => {
-
     return (
         <Modal
             {...props}
             aria-labelledby="contained-modal-title-vcenter"
             centered
-            dialogClassName={"width: 100px;"}
         >
             <Modal.Body>
                 {props.component}

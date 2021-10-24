@@ -7,25 +7,15 @@ import ModalWrapper from "../../components/ModalWrapper/ModalWrapper";
 import {useDispatch, useSelector} from "react-redux";
 import {setCreateOrganisationModalShow} from "../../redux/actions/UserActions";
 import OrganisationCreate from "../../components/Organisation/OrganisationCreate/OrganisationCreate";
+import OrganisationItem from "../../components/Organisation/OrganisationItem/OrganisationItem";
+import "./Organisations.scss"
 
 const Organisations = () => {
-
     const dispatch = useDispatch();
+
+    const userData = useSelector(state => state.userState.userData)
+
     const createOrganisationModalShow = useSelector(state => state.userState.createOrganisationModalShow)
-
-    const [organisationsLoading, setOrganisationsLoading] = useState(true);
-    const organisations = [
-        {
-            name: "Lviv Storts",
-            id: "123"
-        }
-    ];
-
-    useEffect(() => {
-        setTimeout(() => {
-            setOrganisationsLoading(false);
-        }, 1500)
-    }, [])
 
     if (!localStorage.getItem(ACCESS_TOKEN)) {
         return <Redirect to={"/"}/>
@@ -38,13 +28,18 @@ const Organisations = () => {
                     Створити організацію
                 </div>
             }/>
-            {organisationsLoading ? ("Завантаження") : organisations.length == 0 ? "У вас немає створених організацій" : (
-                organisations.map((item) => {
-                    return <div className={"col-4"} key={item.id}>{item.name}</div>
-                })
-            )}
+
+                { userData.organisations?.length === 0 ? (<div className={"mt-2"}>У вас немає створених організацій</div>) : (
+                    <div className="organisation-list g-4 row mt-2">
+                        {userData.organisations.map((item) => {
+                            return <div className={"col-3"}><OrganisationItem key={item.id} data={item} /></div>
+                        })}
+                    </div>
+                )}
+
             <ModalWrapper
-                size={"sm"}
+                contentClassName={"p-1"}
+                dialogClassName={"p-5"}
                 show={createOrganisationModalShow}
                 onHide={() => dispatch(setCreateOrganisationModalShow(false))}
                 component={<OrganisationCreate />}/>

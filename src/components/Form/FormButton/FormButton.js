@@ -1,10 +1,19 @@
 import React from 'react';
+import "./FormButton.scss"
 
-const FormButton = () => {
+const FormButton = ({
+    variant,
+    children,
+    onSubmit,
+    style,
+    className
+}) => {
+    const btnClassName = `button button-${variant || "primary"} ${className}`;
+
     return (
-        <div>
-
-        </div>
+        <button onSubmit={onSubmit} className={btnClassName} style={style}>
+            {children}
+        </button>
     );
 };
 

@@ -1,0 +1,65 @@
+@import "src/css/color";
+
+.organisation-item {
+    padding: 10px 15px;
+    color: #ffffff;
+    background: $primaryColor;
+    border-radius: 5px;
+    display: flex;
+    position: relative;
+    transition: .3s;
+
+    &:hover {
+        cursor: pointer;
+        transform: scale(1.05);
+        box-shadow: 0 0.5rem 1rem #00000026;
+    }
+
+    .organisation-item-logo-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 8px;
+    }
+
+    .organisation-item-logo {
+        width: 40px;
+        background: #ffffff;
+        border-radius: 5px;
+        height: 40px;
+        color: $darkColor;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .organisation-item-name {
+        font-weight: 500;
+        word-break: break-all;
+    }
+
+    .organisation-item-status.not-confirmed {
+        border-radius: 5px;
+        background: $dangerColor;
+        width: fit-content;
+        font-size: 14px;
+        padding: 1px 7px;
+        margin-top: 5px;
+    }
+
+    .organisation-item-status.confirmed {
+        border-radius: 5px;
+        background: $greenColor;
+        width: fit-content;
+        font-size: 14px;
+        padding: 1px 7px;
+        margin-top: 5px;
+    }
+
+    .organisation-item-content {
+        display: flex;
+        flex-direction: column;
+    }
+}

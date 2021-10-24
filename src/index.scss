@@ -1,3 +1,9 @@
+@for $i from 0 through 100 {
+    .width-#{$i} {
+        width : round(percentage($i/100));
+    }
+}
+
 * {
     padding: 0;
     margin: 0;
@@ -44,4 +50,8 @@ ul {
 a {
     text-decoration: none !important;
     color: inherit !important;
+}
+button {
+    outline: none;
+    border: none;
 }

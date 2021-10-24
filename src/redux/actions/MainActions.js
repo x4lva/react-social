@@ -1,4 +1,5 @@
 import {UPDATE_MAIN_STATE} from "../types/MainTypes";
+import {getOrganisationRequest} from "../../services/Organisation";
 
 export const setMainState = (payload) => {
     return {
@@ -17,4 +18,25 @@ export const setSignupModalShow = (value) => (dispatch, getState) => {
     dispatch(setMainState({
         signupModalShow: value
     }))
+};
+
+export const getOrganisation = (value) => (dispatch, getState) => {
+    dispatch(setMainState({
+        organisationLoading: true
+    }))
+    getOrganisationRequest(value)
+        .then(res => {
+            dispatch(setMainState({
+                organisation: res
+            }))
+            dispatch(setMainState({
+                organisationLoading: false
+            }))
+        })
+        .catch(err => {
+            console.error(err)
+            dispatch(setMainState({
+                organisationLoading: false
+            }))
+        })
 };

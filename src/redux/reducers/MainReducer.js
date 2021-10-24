@@ -2,7 +2,9 @@ import { UPDATE_MAIN_STATE } from "../types/MainTypes";
 
 const initialState = {
     loginModalShow: false,
-    signupModalShow: false
+    signupModalShow: false,
+    organisation: {},
+    organisationLoading: false
 };
 
 const mainReducer = (state = initialState, action) => {

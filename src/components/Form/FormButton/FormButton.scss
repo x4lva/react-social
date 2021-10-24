@@ -1,0 +1,33 @@
+@import "src/css/color";
+
+.button {
+    border-radius: 7px;
+    border-width: 1px;
+    height: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    line-height: 20px;
+    transition: .3s;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &-primary {
+        background: $primaryColor;
+        color: #ffffff;
+        font-style: normal;
+        font-weight: bold;
+
+        &:hover {
+            background: $primaryColorLight;
+        }
+
+        &:active, &:focus {
+            background: $primaryColorDark;
+        }
+    }
+}

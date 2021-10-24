@@ -1,8 +1,5 @@
 import React, {Fragment} from 'react';
-import {Link, NavLink} from "react-router-dom";
 import "./HeaderWrapper.scss"
-import {Dropdown} from "react-bootstrap";
-import {CustomToggle} from "../DropdownToggle/DropdownToggle";
 import Header from "../Header/Header";
 
 const HeaderWrapper = (props) => {

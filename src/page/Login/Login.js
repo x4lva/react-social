@@ -1,6 +1,6 @@
 import React, {Component, useEffect, useState} from 'react';
 import './Login.scss';
-import { GITHUB_AUTH_URL, ACCESS_TOKEN } from '../../constants';
+import {GITHUB_AUTH_URL, ACCESS_TOKEN, GOOGLE_AUTH_URL} from '../../constants';
 import { login } from '../../util/APIUtils';
 import { Redirect } from 'react-router-dom'
 import githubLogo from '../../img/github-logo.png';
@@ -16,11 +16,11 @@ const Login = (props) => {
     useEffect(() => {
         if(props.location.state && props.location.state.error) {
             setTimeout(() => {
-                Alert.error(this.props.location.state.error, {
+                Alert.error(props.location.state.error, {
                     timeout: 5000
                 });
-                this.props.history.replace({
-                    pathname: this.props.location.pathname,
+                props.history.replace({
+                    pathname: props.location.pathname,
                     state: {}
                 });
             }, 100);
@@ -53,6 +53,9 @@ class SocialLogin extends Component {
         return (
             <div className="social-login">
                 <a className="btn btn-dark" href={GITHUB_AUTH_URL}>
+                    <img width={30} src={githubLogo} alt="Github" className={"me-2"}/>Log in with Github
+                </a>
+                <a className="btn btn-dark" href={GOOGLE_AUTH_URL}>
                     <img width={30} src={githubLogo} alt="Github" className={"me-2"}/>Log in with Github
                 </a>
             </div>
