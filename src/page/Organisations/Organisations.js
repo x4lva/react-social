@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import {ACCESS_TOKEN} from "../../constants";
 import {Redirect} from "react-router-dom";
-import HeaderWrapper from "../../components/HeaderWrapper/HeaderWrapper";
-import SectionHeader from "../../components/SectionHeader/SectionHeader";
-import ModalWrapper from "../../components/ModalWrapper/ModalWrapper";
+import HeaderWrapper from "../../components/Wrappers/HeaderWrapper/HeaderWrapper";
+import SectionHeader from "../../components/Section/SectionHeader/SectionHeader";
+import ModalWrapper from "../../components/Wrappers/ModalWrapper/ModalWrapper";
 import {useDispatch, useSelector} from "react-redux";
 import {setCreateOrganisationModalShow} from "../../redux/actions/UserActions";
 import OrganisationCreate from "../../components/Organisation/OrganisationCreate/OrganisationCreate";

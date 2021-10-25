@@ -1,18 +1,18 @@
 import React, {Fragment} from 'react';
 import './Home.scss';
 import {ACCESS_TOKEN} from "../../constants";
-import ModalWrapper from "../../components/ModalWrapper/ModalWrapper";
+import ModalWrapper from "../../components/Wrappers/ModalWrapper/ModalWrapper";
 import Login from "../Login/Login";
 import {useDispatch, useSelector} from "react-redux";
 import {setLoginModalShow, setSignupModalShow} from "../../redux/actions/MainActions";
 import Signup from "../Signup/Signup";
-import SectionHeader from "../../components/SectionHeader/SectionHeader";
+import SectionHeader from "../../components/Section/SectionHeader/SectionHeader";
 import {Link, NavLink} from "react-router-dom";
-import Header from "../../components/Header/Header";
+import Header from "../../components/Layout/Header/Header";
 import EventItem from "../../components/Event/EventItem/EventItem";
-import CompilationSection from "../../components/СompilationSection/CompilationSection";
-import RecommendationSection from "../../components/RecommendationSection/RecommendationSection";
-import ThemeSection from "../../components/ThemeSection/ThemeSection";
+import SectionOmpilation from "../../components/Section/SectionСompilation/SectionСompilation";
+import SectionRecommendation from "../../components/Section/SectionRecommendation/SectionRecommendation";
+import SectionTheme from "../../components/Section/SectionTheme/SectionTheme";
 
 const Home = (props) => {
     const dispatch = useDispatch()
@@ -104,9 +104,9 @@ const Home = (props) => {
             </header>
             <main>
                 <div className="container mt-5">
-                    <RecommendationSection/>
+                    <SectionRecommendation/>
                 </div>
-                <CompilationSection />
+                <SectionOmpilation />
                 <div className="container mt-5">
                     <div className={"d-flex flex-wrap feed"}>
                         <EventItem img={"https://images.pexels.com/photos/167491/pexels-photo-167491.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"} />
@@ -118,7 +118,7 @@ const Home = (props) => {
                     </div>
                 </div>
                 <div className="container mt-5">
-                    <ThemeSection/>
+                    <SectionTheme/>
                 </div>
             </main>
         </Fragment>

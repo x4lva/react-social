@@ -1,8 +1,8 @@
 import React, {Fragment} from 'react';
-import ThemeItem from "../ThemeItem/ThemeItem";
+import ThemeItem from "./ThemeItem/ThemeItem";
 import SectionHeader from "../SectionHeader/SectionHeader";
 
-const ThemeSection = () => {
+const SectionTheme = () => {
     return (
         <Fragment>
             <SectionHeader title={"Теми подій"} className={"mb-3"} />
@@ -19,4 +19,4 @@ const ThemeSection = () => {
     );
 };
 
-export default ThemeSection;
+export default SectionTheme;

@@ -1,0 +1,43 @@
+@import "src/css/color";
+
+.button {
+    border-radius: 5px;
+    border-width: 1px;
+    height: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 20px;
+    transition: .3s;
+    padding: 0 15px;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &-primary {
+        background: $primaryColor;
+        color: #ffffff;
+        font-style: normal;
+        font-weight: 500;
+
+        &:hover {
+            background: $primaryColorLight;
+        }
+
+        &:active, &:focus {
+            background: $primaryColorDark;
+        }
+    }
+
+    &-transparent {
+        background: transparent;
+        color: $primaryColorLight;
+        font-weight: 500;
+        
+        &:hover {
+            background: #eceaf2;
+        }
+    }
+}

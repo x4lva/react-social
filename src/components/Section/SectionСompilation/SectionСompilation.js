@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CompilationSection = () => {
+const SectionOmpilation = () => {
     return (
         <div className={"bg-light"} style={{height: "300px"}}>
 
@@ -8,4 +8,4 @@ const CompilationSection = () => {
     );
 };
 
-export default CompilationSection;
+export default SectionOmpilation;

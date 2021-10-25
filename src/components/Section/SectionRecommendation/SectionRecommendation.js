@@ -1,10 +1,10 @@
 import React from 'react';
-import "./RecommendationSection.scss"
+import "./SectionRecommendation.scss"
 import SectionHeader from "../SectionHeader/SectionHeader";
 import ScrollContainer from "react-indiana-drag-scroll";
-import EventItem from "../Event/EventItem/EventItem";
+import EventItem from "../../Event/EventItem/EventItem";
 
-const RecommendationSection = () => {
+const SectionRecommendation = () => {
     return (
         <div className="d-flex flex-column mt-4">
             <SectionHeader title="Рекомендации" />
@@ -27,4 +27,4 @@ const RecommendationSection = () => {
     );
 };
 
-export default RecommendationSection;
+export default SectionRecommendation;

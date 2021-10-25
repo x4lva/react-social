@@ -1,13 +1,14 @@
 import React from "react";
 import "./OragnisationItem.scss"
 import {Link} from "react-router-dom";
+import OrganisationLogo from "../OrganisationLogo/OrganisationLogo";
 
 const OrganisationItem = ({data}) => {
     return (
         <Link to={`/organisation/${data.id}`}>
-            <div className="organisation-item">
+            <div className="organisation-item border">
                 <div className="organisation-item-logo-container width-22">
-                    <div className={"organisation-item-logo"}>{data.name.slice(0, 1)}</div>
+                    <OrganisationLogo size={40} organisation={data} />
                 </div>
                 <div className="organisation-item-content width-88">
                     <div className="organisation-item-name">

@@ -3,7 +3,7 @@ import './Profile.scss';
 import {connect} from "react-redux";
 import {Redirect} from "react-router-dom";
 import {ACCESS_TOKEN} from "../../constants";
-import HeaderWrapper from "../../components/HeaderWrapper/HeaderWrapper";
+import HeaderWrapper from "../../components/Wrappers/HeaderWrapper/HeaderWrapper";
 
 class Profile extends Component {
     constructor(props) {

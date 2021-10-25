@@ -2,8 +2,7 @@
 
 .organisation-item {
     padding: 10px 15px;
-    color: #ffffff;
-    background: $primaryColor;
+    color: $darkColor;
     border-radius: 5px;
     display: flex;
     position: relative;
@@ -41,6 +40,7 @@
     }
 
     .organisation-item-status.not-confirmed {
+        color: #ffffff;
         border-radius: 5px;
         background: $dangerColor;
         width: fit-content;
@@ -50,6 +50,7 @@
     }
 
     .organisation-item-status.confirmed {
+        color: #ffffff;
         border-radius: 5px;
         background: $greenColor;
         width: fit-content;

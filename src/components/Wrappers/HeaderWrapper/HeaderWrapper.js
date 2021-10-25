@@ -1,6 +1,6 @@
 import React, {Fragment} from 'react';
 import "./HeaderWrapper.scss"
-import Header from "../Header/Header";
+import Header from "../../Layout/Header/Header";
 
 const HeaderWrapper = (props) => {
     return (

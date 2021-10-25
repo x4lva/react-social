@@ -1,5 +1,5 @@
 import React from 'react';
-import HeaderWrapper from "../../components/HeaderWrapper/HeaderWrapper";
+import HeaderWrapper from "../../components/Wrappers/HeaderWrapper/HeaderWrapper";
 
 const Calendar = (props) => {
     return (

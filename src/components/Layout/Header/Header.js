@@ -1,10 +1,10 @@
 import React from 'react';
 import {Link, NavLink} from "react-router-dom";
 import {Dropdown} from "react-bootstrap";
-import {CustomToggle} from "../DropdownToggle/DropdownToggle";
-import {ACCESS_TOKEN} from "../../constants";
+import {CustomToggle} from "../../DropdownToggle/DropdownToggle";
+import {ACCESS_TOKEN} from "../../../constants";
 import {useDispatch} from "react-redux";
-import {userLogOut} from "../../redux/actions/UserActions";
+import {userLogOut} from "../../../redux/actions/UserActions";
 
 const Header = (props) => {
     const dispatch = useDispatch();
