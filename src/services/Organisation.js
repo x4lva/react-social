@@ -5,8 +5,19 @@ export const createOrganisationRequest = async (data) => {
     return await axios.post(`${API_BASE_URL}/organisation/create`, {
         name: data.organisationName,
         email: data.organisationEmail,
+        description: data.organisationDescription
     },
     {
+        headers: {
+            Authorization: 'Bearer ' + localStorage.getItem(ACCESS_TOKEN)
+        }
+    }).then(res => {return res.data})
+}
+
+export const subscribeOrganisationRequest = async (data) => {
+    return await axios.post(`${API_BASE_URL}/organisation/subscribe`, {
+        organisationId: data,
+    },{
         headers: {
             Authorization: 'Bearer ' + localStorage.getItem(ACCESS_TOKEN)
         }

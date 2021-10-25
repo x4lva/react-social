@@ -32,12 +32,12 @@
     }
 
     &-transparent {
-        background: transparent;
+        background: #eceaf2;
         color: $primaryColorLight;
         font-weight: 500;
         
         &:hover {
-            background: #eceaf2;
+            background: #f3f1f1;
         }
     }
 }

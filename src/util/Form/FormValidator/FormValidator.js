@@ -21,7 +21,8 @@ export const formFieldValidate = (name, value, params) => {
         error = [EMAIL];
     }
 
-    if (params?.minLength && value.length < params?.minLength) {
+    if (params?.minLength && ( value.length < params?.minLength )) {
+        console.log(value)
         error = [MIN_LENGTH(params.minLength)];
     }
 

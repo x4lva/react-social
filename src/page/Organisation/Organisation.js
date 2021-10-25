@@ -9,6 +9,8 @@ import OrganisationLogo from "../../components/Organisation/OrganisationLogo/Org
 import "./Organisation.scss"
 import Button from "../../components/Layout/Button/Button";
 import {Tab, Tabs} from "react-bootstrap";
+import EventItem from "../../components/Event/EventItem/EventItem";
+import {subscribeOrganisation} from "../../redux/actions/UserActions";
 
 
 const Organisation = (props) => {
@@ -16,6 +18,7 @@ const Organisation = (props) => {
 
     const organisation = useSelector(state => state.mainState.organisation)
     const organisationLoading = useSelector(state => state.mainState.organisationLoading)
+    const userID = useSelector(state => state.userState.userData?.id)
 
     useEffect(() => {
         dispatch(getOrganisation(props.match.params.organisationId))
@@ -33,6 +36,8 @@ const Organisation = (props) => {
         return "Organisation not found"
     }
 
+    console.log(organisation)
+
     return (
         <HeaderWrapper>
             <div className="organisation-header pb-3 border-bottom">
@@ -40,7 +45,7 @@ const Organisation = (props) => {
                     <OrganisationLogo size={130} organisation={organisation} />
                     <div className="organisation-header-info  mb-2 ms-3">
                         <div className="organisation-header-info-item">
-                            <span>4</span> слідкувача<i className="fas fa-circle"></i>
+                            <span>{organisation.subscribers.length}</span> слідкувача<i className="fas fa-circle"></i>
                         </div>
                         <div className="organisation-header-info-item">
                             <span>6</span> подій<i className="fas fa-circle"></i>
@@ -51,12 +56,17 @@ const Organisation = (props) => {
                     </div>
                 </div>
                 <div className="organisation-header-actions">
-                    <Button variant={"primary"} style={{fontSize: 16}}>
+                    <Button onClick={() => dispatch(subscribeOrganisation(organisation.id))} variant={"primary"} style={{fontSize: 16}}>
                         Слідкувати
                     </Button>
                     <Button className={"ms-2"} style={{fontSize: 16}} variant={"transparent"}>
                         <i className="far fa-share-square"></i>
                     </Button>
+                    { organisation.author.id === userID && (
+                        <Button className={"ms-2"} style={{fontSize: 16}} variant={"transparent"}>
+                            <i className="fas fa-ellipsis-h"></i>
+                        </Button>
+                    ) }
                 </div>
             </div>
             <div className={"organisation-title"}>
@@ -67,7 +77,12 @@ const Organisation = (props) => {
             </div>
             <Tabs defaultActiveKey="events" className="mt-3" id={"organisation-tabs"}>
                 <Tab tabClassName={"organisation-tab"} eventKey="events" title="Події">
-                    123
+                    <div className="organisation-tabs-events">
+                        <EventItem img={"https://images.pexels.com/photos/167491/pexels-photo-167491.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"} />
+                        <EventItem img={"https://images.pexels.com/photos/167491/pexels-photo-167491.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"} />
+                        <EventItem img={"https://images.pexels.com/photos/167491/pexels-photo-167491.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"} />
+                        <EventItem img={"https://images.pexels.com/photos/167491/pexels-photo-167491.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"} />
+                    </div>
                 </Tab>
                 <Tab tabClassName={"organisation-tab"} eventKey="news" title="Новини">
                     321

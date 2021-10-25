@@ -4,14 +4,14 @@ import "./Button.scss"
 const Button = ({
         variant,
         children,
-        onSubmit,
+        onClick,
         style,
         className,
     }) => {
     const btnClassName = `button button-${variant || "primary"} ${className}`;
 
     return (
-        <div onSubmit={onSubmit} className={btnClassName} style={style}>
+        <div onClick={(e) => onClick(e)} className={btnClassName} style={style}>
             {children}
         </div>
     );

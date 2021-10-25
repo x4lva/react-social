@@ -50,13 +50,20 @@ ul[role="tablist"] {
 
     button[id^="organisation-tabs-tab-"] {
         border: none;
-        transition: .3s;
-        border-bottom: 1px solid transparent;
+        transition: .2s;
+        border-bottom: 2px solid transparent;
         font-family: Montserrat, serif;
         font-size: 16px;
+        font-weight: 500;
 
         &.active {
-            border-bottom: 1px solid #000000;
+            border-bottom: 2px solid $primaryColor;
+            color: $primaryColor;
         }
     }
+}
+
+.organisation-tabs-events {
+    display: flex;
+    flex-wrap: wrap;
 }

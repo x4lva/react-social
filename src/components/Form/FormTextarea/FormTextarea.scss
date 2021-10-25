@@ -1,0 +1,36 @@
+@import "src/css/color";
+
+.form-input-wrapper {
+    position: relative;
+
+    &.error .from-textarea {
+        outline-color: $dangerColor;
+        border-color: $dangerColor;
+        color: $dangerColor;
+
+        &::placeholder {
+            color: $dangerColor;
+        }
+    }
+}
+
+.from-textarea {
+    width: 100%;
+    border: 2px solid $lightColor;
+    border-radius: 7px;
+    padding: 10px 13px;
+    color: $darkColor;
+    position: relative;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 18px;
+
+    &::placeholder {
+        color: $lightColor;
+    }
+
+    &:focus {
+        outline-color: $primaryColorLight;
+    }
+}

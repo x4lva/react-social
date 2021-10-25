@@ -1,6 +1,7 @@
 import {UPDATE_USER_STATE} from "../types/UserTypes";
 import {getCurrentUser} from "../../services/User";
-import { createOrganisationRequest } from "../../services/Organisation";
+import {createOrganisationRequest, subscribeOrganisationRequest} from "../../services/Organisation";
+import {setMainState} from "./MainActions";
 
 export const setUserState = (payload) => {
     return {
@@ -26,18 +27,6 @@ export const loadUserData = () => (dispatch, getState) => {
     });
 };
 
-export const updateUserOrganisations = () => (dispatch, getState) => {
-    getCurrentUser()
-        .then(response => {
-            dispatch(setUserState({
-                userData: { ...getState().userState.userData, organisations: response.organisations },
-            }))
-        }).catch(error => {
-            console.log(error);
-    });
-};
-
-
 export const createOrganisation = (data) => (dispatch, getState) => {
     createOrganisationRequest(data)
         .then(response => {
@@ -49,6 +38,24 @@ export const createOrganisation = (data) => (dispatch, getState) => {
         }).catch(error => {
             console.log(error);
     });
+};
+
+export const subscribeOrganisation = (data) => (dispatch, getState) => {
+    subscribeOrganisationRequest(data)
+        .then(response => {
+            if (response) {
+                dispatch(setUserState({
+                    userData: { ...getState().userState.userData, subscribedOrganisations: [...getState().userState.userData.organisations, response] },
+                }))
+                if (data === getState().mainState.organisation.id) {
+                    dispatch(setMainState({
+                        organisation: {...getState().mainState.organisation, subscribers: ["123"]},
+                    }))
+                }
+            }
+        }).catch(error => {
+
+        });
 };
 
 export const userLogOut = () => (dispatch, getState) => {

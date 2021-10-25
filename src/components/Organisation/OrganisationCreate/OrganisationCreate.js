@@ -5,6 +5,8 @@ import FormButton from "../../Form/FormButton/FormButton";
 import {formFieldValidate, formValidate} from "../../../util/Form/FormValidator/FormValidator";
 import {useDispatch} from "react-redux";
 import { createOrganisation } from '../../../redux/actions/UserActions';
+import {FormText} from "react-bootstrap";
+import FormTextarea from "../../Form/FormTextarea/FormTextarea";
 
 const OrganisationCreate = () => {
 
@@ -14,16 +16,21 @@ const OrganisationCreate = () => {
         },
         organisationEmail: {
             required: true, email: true
+        },
+        organisationDescription: {
+            required: true, minLength: 10
         }
     }
 
     const [formData, setFormData] = useState({
-        organisationName: '', organisationEmail: ''
+        organisationName: '', organisationEmail: '', organisationDescription: ''
     })
     const [formErrors, setFormErrors] = useState({})
     const dispatch = useDispatch()
 
     const formChangeHandler = (e, params) => {
+        console.log(e.target.name)
+
         setFormErrors(prevFormErrors => (
             { ...prevFormErrors, [e.target.name]: formFieldValidate(e.target.name, e.target.value, params) }
         ));
@@ -54,6 +61,17 @@ const OrganisationCreate = () => {
                            errors={formErrors.organisationName}
                            params={formParams.organisationName}
                            value={formData.organisationName} />
+            </FormGroup>
+            <FormGroup title={"Опис організації"} >
+                <FormTextarea placeholder={"Опис організації"}
+                           help={"Опис організації побачуть користувачі на сторінці організації"}
+                           name={"organisationDescription"}
+                           onChange={formChangeHandler}
+                           row={2}
+                           maxRow={10}
+                           errors={formErrors.organisationDescription}
+                           params={formParams.organisationDescription}
+                           value={formData.organisationDescription} />
             </FormGroup>
             <FormGroup title={"E-mail"} >
                 <FormInput type={"text"}
